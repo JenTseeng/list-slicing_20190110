@@ -82,12 +82,12 @@ def custom_extend(input_list, second_list):
     """
     
     for item in second_list:
-        print("This is your item to add:", item)
-        print("this is your current input_list ",input_list)
+    #     print("This is your item to add:", item)
+    #     print("this is your current input_list ",input_list)
         to_add = [input_list[-1],item]
-        print("This is what you're going to append: ", to_add)
+        # print("This is what you're going to append: ", to_add)
         input_list[-1:] = to_add
-        print("this is your new input_list ", input_list)
+        # print("this is your new input_list ", input_list)
 
 
 def custom_insert(input_list, index, value):
@@ -211,7 +211,19 @@ def custom_reverse(input_list):
         True
 
     """
-    input_list[:] = input_list[::-1]
+    idx = 0
+    num_iterations = int(custom_len(input_list)/2)
+
+    for i in input_list[:num_iterations]: # i will be the forward element
+       #print(i)
+       #print(input_list)
+       j = input_list[-idx-1] #later element
+       input_list[idx] = j
+       input_list[-idx-1] = i
+       #print("your new list is: ", input_list)
+       idx += 1
+       #print('index is: ',idx)
+
 
 
 def custom_contains(input_list, value):
