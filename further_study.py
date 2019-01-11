@@ -30,8 +30,11 @@ def custom_len(input_list):
         8
 
     """
+    count = 0
+    for i in input_list:
+        count += 1
 
-    return 0
+    return count
 
 
 # For the next four exercises, you'll need to be clever and think about ways
@@ -58,8 +61,8 @@ def custom_append(input_list, value):
         True
 
     """
-
-    pass
+    to_add = [input_list[-1],value]
+    input_list[-1:] = to_add
 
 
 def custom_extend(input_list, second_list):
@@ -77,8 +80,14 @@ def custom_extend(input_list, second_list):
         True
 
     """
-
-    pass
+    
+    for item in second_list:
+        print("This is your item to add:", item)
+        print("this is your current input_list ",input_list)
+        to_add = [input_list[-1],item]
+        print("This is what you're going to append: ", to_add)
+        input_list[-1:] = to_add
+        print("this is your new input_list ", input_list)
 
 
 def custom_insert(input_list, index, value):
@@ -95,8 +104,7 @@ def custom_insert(input_list, index, value):
         True
 
     """
-
-    pass
+    input_list[index:index] = [value]
 
 
 def custom_remove(input_list, value):
@@ -114,8 +122,15 @@ def custom_remove(input_list, value):
         True
 
     """
+    target = 0
+    index = 0
+    for i in input_list:
+        if i == value:
+            target = index
+            break
+        index += 1
 
-    pass
+    input_list[target:target+1] = []
 
 
 def custom_pop(input_list):
@@ -133,8 +148,9 @@ def custom_pop(input_list):
         ['Jan', 'Feb']
 
     """
-
-    return None
+    last_item = input_list[-1]
+    input_list[-1:]=[]
+    return last_item
 
 
 def custom_index(input_list, value):
@@ -149,8 +165,15 @@ def custom_index(input_list, value):
         1
 
     """
+    target = None
+    index = 0
+    for i in input_list:
+        if i == value:
+            target = index
+            break
+        index += 1
 
-    return 0
+    return target
 
 
 def custom_count(input_list, value):
@@ -165,8 +188,12 @@ def custom_count(input_list, value):
         2
 
     """
+    count = 0
+    for i in input_list:
+        if i == value:
+            count += 1
 
-    return 0
+    return count
 
 
 def custom_reverse(input_list):
